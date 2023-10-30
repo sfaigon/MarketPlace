@@ -1,5 +1,20 @@
 <%- include("../partials/header") %>
-
+<h2>Market List</h2>
+<table>
+    <thead>
+        <th>Name</th>
+        <th>location</th>
+    </thead>
+    <tbody>
+        <% markets.forEach(function(m) { %>
+            <tr>
+                <td><%= m.name %></td>
+                <td><%= m.location %></td>
+            </tr>
+       <% }) %>
+        
+    </tbody>
+</table>
 
 
 <%- include("../partials/footer") %>

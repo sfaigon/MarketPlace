@@ -1,5 +1,16 @@
 <%- include("../partials/header") %>
-
+<h2>Create a New MarketPlace</h2>
+<form action="/markets" method="POST">
+    <label> Store Name
+        <input type="text" name="name">
+    </label>
+    <br><br>
+    <label>Store Location
+        <input type="text" name="location">
+    </label>
+    <br> <br>
+    <button type="submit">Create Marketplace</button>
+</form>
 
 
 <%- include("../partials/footer") %>
