@@ -4,12 +4,14 @@
     <thead>
         <th>Name</th>
         <th>location</th>
+        <th></th>
     </thead>
     <tbody>
         <% markets.forEach(function(m) { %>
             <tr>
                 <td><%= m.name %></td>
                 <td><%= m.location %></td>
+                <td><a href="/markets/<%= m._id %>"> Enter the Store</a></td>
             </tr>
        <% }) %>
         
