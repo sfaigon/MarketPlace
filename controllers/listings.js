@@ -12,5 +12,5 @@ async function create(req, res) {
     } catch(err){
         console.log(err);
     }
-    res.redirect(`/market/${market._id}`);
+    res.redirect(`/markets/${market._id}`);
 }
