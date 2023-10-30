@@ -16,8 +16,9 @@ function newMarket(req, res) {
 async function create(req, res) {
   try {
     await Market.create(req.body);
+    res.redirect("/markets");
   } catch (err) {
     console.log(err);
-    res.render("market/new", { errorMsg: err.message });
+    res.render("markets/new", { title: "New Market", errorMsg: err.message });
   }
 }
