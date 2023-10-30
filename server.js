@@ -16,7 +16,7 @@ require("./config/passport");
 var indexRouter = require("./routes/index");
 var marketsRouter = require("./routes/markets");
 var listingsRouter = require("./routes/listings");
-var storeReviewsRouter = require("./routers/storeReviews");
+var storeReviewsRouter = require("./routes/storeReviews");
 
 var app = express();
 
