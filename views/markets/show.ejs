@@ -84,6 +84,7 @@
               <th>Price</th>
               <th>Quantity</th>
               <th>Description</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -94,6 +95,11 @@
               <td><%= l.price %></td>
               <td><%= l.quantity %></td>
               <td><%= l.description %></td>
+              <td>
+                <form action="/listings/<%= l._id %>?_method=DELETE" method="POST">
+                    <button type="submit">X</button>
+                </form>
+              </td>
               
             </tr>
             <% }); %>
