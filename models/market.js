@@ -20,6 +20,7 @@ const listingSchema = new Schema({
     item: { type: String, required: true },
     price: { type: Number, min : 1, required: true},
     quantity: {type: Number, min: 1, required: true},
+    description: {type: String, required: true},
 }, {
     timestamps: true
 })
