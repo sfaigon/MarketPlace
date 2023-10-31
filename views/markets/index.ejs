@@ -1,6 +1,7 @@
 <%- include("../partials/header") %>
 <h2>Market List</h2>
 <table>
+    <% if(markets.length) { %>
     <thead>
         <th>Name</th>
         <th>location</th>
@@ -14,7 +15,9 @@
                 <td><a href="/markets/<%= m._id %>"> Enter the Store</a></td>
             </tr>
        <% }) %>
-        
+        <% } else { %>
+            <h2>No Markets Open</h2>
+        <% } %> 
     </tbody>
 </table>
 
