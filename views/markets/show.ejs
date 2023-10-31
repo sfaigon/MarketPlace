@@ -26,12 +26,13 @@
           <input type="submit" value="Add Store Review" />
         </form>
 
-        <% if(market.storeReviews) { %>
+        <% if(market.storeReviews.length) { %>
         <table>
           <thead>
             <tr>
               <th>Review</th>
               <th>Rating</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -40,6 +41,11 @@
               <!-- <tr><%= m.createdAt.toLocaleDateString() %></tr> -->
               <td><%= m.content %></td>
               <td><%= m.rating %></td>
+              <td>
+                <form action="/storeReviews/<%= l._id %>?_method=DELETE" method="POST">
+                    <button type="submit">X</button>
+                </form>
+              </td>
             </tr>
             <% }); %>
           </tbody>
@@ -70,7 +76,7 @@
           <input type="submit" value="Add Listing" />
         </form>
 
-        <% if(market.listings) { %>
+        <% if(market.listings.length) { %>
         <table>
           <thead>
             <tr>
@@ -88,12 +94,13 @@
               <td><%= l.price %></td>
               <td><%= l.quantity %></td>
               <td><%= l.description %></td>
+              
             </tr>
             <% }); %>
           </tbody>
         </table>
         <% } else { %>
-        <h5>No Reviews Yet</h5>
+        <h5>No Listings Yet</h5>
         <% } %>
       </section>
     </div>
