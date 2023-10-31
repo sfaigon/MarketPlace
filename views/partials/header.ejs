@@ -6,5 +6,13 @@
 
   </head>
   <body>
-    <nav><a href="/">Home</a><a href="/markets">All Markets</a><a href="/markets/new">Create a New Marketplace</a></nav>
+    <nav><a href="/">Home</a>|
+      <a href="/markets" <%- title === 'All Markets' ? 'class="active"' : '' %>>All Markets</a>|
+      <% if (user) { %>
+      <a href="/markets/new" <%- title === 'Create a Marketplace' ? 'class="active"' : '' %>>Create a New Marketplace</a>|
+      <a href="/logout">LogOut</a> 
+    <% } else { %>
+      <a href="/auth/google" class="login">LOG IN</a>
+      </nav>
+      <% } %>
     <h1> <%= title %></h1>
