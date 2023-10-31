@@ -30,6 +30,8 @@
         <table>
           <thead>
             <tr>
+              <th>User</th>
+              <th>Date</th>
               <th>Review</th>
               <th>Rating</th>
               <th></th>
@@ -38,7 +40,8 @@
           <tbody>
             <% market.storeReviews.forEach(function(m) { %>
             <tr>
-              <!-- <tr><%= m.createdAt.toLocaleDateString() %></tr> -->
+              <td><%= m.userName %></td>
+              <td><%= m.createdAt.toLocaleDateString() %></td>
               <td><%= m.content %></td>
               <td><%= m.rating %></td>
               <td>
