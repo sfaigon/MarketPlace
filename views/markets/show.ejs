@@ -107,12 +107,12 @@
               <td class="itemAndDescrip"><%= l.item %> <br> <br> <%= l.description %></td>
               <td>$<%= l.price %></td>
               <td><%= l.quantity %></td>
-              <td><img class="itemImg" src="https://i.imgur.com/VOpnJTY.jpg" /></a></td>
+              <td><img class="itemImg" src="<%= l.itemImg %>" /></a></td>
               <% if(user?._id.equals(l.user))  { %>
               <td class="deleteBox">
-               
                 <form action="/listings/<%= l._id %>?_method=DELETE" method="POST">
-                    <button type="submit">X</button>
+                  
+                  <a href="/listings/<%= l._id %>/edit" class="editBtn"><h3>Edit</h3></a>  <button type="submit">X</button>
                 </form>
             </td>
             <% } %>
