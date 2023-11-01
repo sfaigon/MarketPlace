@@ -33,6 +33,7 @@ const listingSchema = new Schema(
     price: { type: Number, min: 1, required: true },
     quantity: { type: Number, min: 1, required: true },
     description: { type: String, required: true },
+    itemImg : {type: String},
     user: {
         type: Schema.Types.ObjectId,
         ref: "User",
