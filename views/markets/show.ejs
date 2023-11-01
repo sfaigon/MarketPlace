@@ -3,11 +3,13 @@
   <div class="row">
     <div class="column" id="left-side">
       <section id="show-page">
-        <div>Location:</div>
-        <div><%= market.location %></div>
+        <div> <h2>Location: </h2> <%= market.location %></div>
+        
+       
+        <div><h2><%= market.category %></h2></div>
       </section>
       <section id="show-reviews">
-        <h2>Reviews</h2>
+        <h4>Reviews</h4>
         <form
           action="/markets/<%= market._id %>/storeReviews"
           method="POST"
@@ -15,7 +17,8 @@
         >
         <% if (user) { %>
           <label>Review</label>
-          <textarea name="content" cols="30" rows="5"></textarea>
+          <textarea name="content" cols="30" rows="2"></textarea>
+          <br><br>
           <label>Rating</label>
           <select name="rating">
             <option value="1">1</option>
@@ -45,15 +48,20 @@
               <td><%= m.createdAt.toLocaleDateString() %></td>
               <td><%= m.content %></td>
               <td><%= m.rating %></td>
-              <td>
-             
+              <% if(user?._id.equals(m.user))  { %>
+                <td>
+                 
+                  <form action="/storeReviews/<%= m._id %>?_method=DELETE" method="POST">
+                      <button type="submit">X</button>
+                  </form>
               </td>
+              <% } %>
             </tr>
             <% }); %>
           </tbody>
         </table>
         <% } else { %>
-        <h5>No Reviews Yet</h5>
+        <h3>No Reviews Yet</h3>
         <% } %>
       </section>
     </div>
@@ -66,55 +74,56 @@
           method="POST"
           id="add-listings"
         >
-          <label>Item</label>
-          <input type="text" name="item" cols="30" rows="5"></input>
+          
+          <input type="text" placeholder="Your Item Name" name="item" cols="30" rows="5"></input>       
+          <input type="number" placeholder="Selling Price" name="price" >
           <br><br>
-          <label>Price</label>
-          <input type="number" name="price" >
-          <br><br>
-          <label>Quantity</label>
-          <input type="number" name="quantity">
-          <br><br>
-          <label>Description</label>
-          <textarea name="description" cols="30" rows="5"></textarea>
+          <input type="number" placeholder="Quantity" name="quantity">
+          <input type="text" placeholder="Image Url" name="itemImg">
+          <br><br>          
+          <textarea name="description" placeholder="Item description" cols="30" rows="3"></textarea>
           <br>
           <input type="submit" value="Add Listing" />
         </form>
         <% } %>
 
         <% if(market.listings.length) { %>
-        <table>
+        <table class="listingTable">
           <thead>
             <tr>
               <th>Item</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Description</th>
+              <th width="100">Price</th>
+              <th width="100">Quantity</th>
+              <th>Image</th>
+              <% if (user) { %>
               <th></th>
+              <% } %>
             </tr>
           </thead>
           <tbody>
             <% market.listings.forEach(function(l) { %>
             <tr>
              
-              <td><%= l.item %></td>
+              <td class="itemAndDescrip"><%= l.item %> <br> <br> <%= l.description %></td>
               <td>$<%= l.price %></td>
               <td><%= l.quantity %></td>
-              <td><%= l.description %></td>
-              <td>
-                <% if(user?._id.equals(l.user))  { %>
+              <td><img class="itemImg" src="https://i.imgur.com/VOpnJTY.jpg" /></a></td>
+              <% if(user?._id.equals(l.user))  { %>
+              <td class="deleteBox">
+               
                 <form action="/listings/<%= l._id %>?_method=DELETE" method="POST">
                     <button type="submit">X</button>
                 </form>
-                <% } %>
-              </td>
+            </td>
+            <% } %>
               
             </tr>
+           
             <% }); %>
           </tbody>
         </table>
         <% } else { %>
-        <h5>No Listings Yet</h5>
+        <h3>No Listings Yet</h3>
         <% } %>
       </section>
     </div>

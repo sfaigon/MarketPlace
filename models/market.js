@@ -52,7 +52,7 @@ const marketSchema = new Schema(
   {
     name: { type: String, required: true },
     location: { type: String, required: true },
-    // categories - debating setup
+    category: {type: String, required: true},
     storeReviews: [storeReviewsSchema],
     listings: [listingSchema],
     user: {
@@ -63,6 +63,7 @@ const marketSchema = new Schema(
       },
       userName: String,
       userAvatar: String,
+      
   },
   {
     timestamps: true,

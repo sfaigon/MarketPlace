@@ -15,6 +15,7 @@ a {
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
+  width: 50vw;
 }
 .row {
   display: flex;
@@ -29,9 +30,11 @@ a {
 }
 .icon {
   border-radius: 50%;
+  margin-right: 10px;
 }
 .page {
   text-align: center;
+  word-wrap: break-word;
  
 }
 .table {
@@ -63,4 +66,34 @@ nav > a:hover:not(.active) {
 nav > a.active {
   color: white;
   cursor: default;
+}
+table {
+  
+  width: 50vw;
+  table-layout: fixed;
+  border-radius: 5%;
+ 
+
+}
+
+.listingTable {
+  display: block;
+  overflow-y: scroll;
+  max-height: 40vh;
+}
+td {
+  background-color: #dbdbdb;
+  border-radius: 10%;
+  padding: 10px 20px 10px 20px;
+}
+.itemImg{
+ width: 8vw;
+}
+.itemAndDescrip {
+  height: 13vh;
+  max-width: 10vw;
+}
+.deleteBox {
+  background-color: #B8C0C2;
+
 }
