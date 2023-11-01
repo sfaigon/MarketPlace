@@ -22,3 +22,45 @@ a {
   flex-wrap: wrap;
   width: 100%;
 }
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon {
+  border-radius: 50%;
+}
+.page {
+  text-align: center;
+ 
+}
+.table {
+  margin: auto;
+  text-align: center;
+}
+.nav {
+  text-align: right;
+  background-color: #B8C0C2;
+  padding: 20px 20px 20px 30px;
+  
+}
+nav > a {
+  margin: 20px;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: large;
+  font-style: oblique;
+  font-weight: 600;
+  color: black;
+}
+
+nav > a:hover:not(.active) {
+  color: white;
+  background-color: #424748;
+}
+
+nav > a.active {
+  color: white;
+  cursor: default;
+}

@@ -1,8 +1,9 @@
 <%- include("../partials/header") %>
 <h2>Market List</h2>
-<table>
+<table class="table">
     <% if(markets.length) { %>
     <thead>
+        <th>Owner</th>
         <th>Name</th>
         <th>location</th>
         <th></th>
@@ -11,15 +12,16 @@
     <tbody>
         <% markets.forEach(function(m) { %>
             <tr>
+                <td class="user"><img alt="avatar" class="icon" src="<%= m.userAvatar %>" referrerpolicy="no-referrer" ><%= m.userName %></td>
                 <td><%= m.name %></td>
                 <td><%= m.location %></td>
                 <td><a href="/markets/<%= m._id %>"> Enter the Store</a></td>
                 <% if(user?._id.equals(m.user))  { %>
-                <td>
+                <!-- <td>
                     <form action="/markets/<%= m._id %>?_method=DELETE" method="POST">                        
                         <button type="submit">X</button>
                     </form>
-                </td>
+                </td> -->
                 <% } %>
             </tr>
        <% }) %>

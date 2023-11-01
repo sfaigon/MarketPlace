@@ -13,6 +13,7 @@
           method="POST"
           id="add-store-reviews"
         >
+        <% if (user) { %>
           <label>Review</label>
           <textarea name="content" cols="30" rows="5"></textarea>
           <label>Rating</label>
@@ -25,7 +26,7 @@
           </select>
           <input type="submit" value="Add Store Review" />
         </form>
-
+        <% } %>
         <% if(market.storeReviews.length) { %>
         <table>
           <thead>
@@ -45,11 +46,7 @@
               <td><%= m.content %></td>
               <td><%= m.rating %></td>
               <td>
-                <!-- <% if(user?._id.equals(m.user))  { %>
-                <form action="/storeReviews/<%= m._id %>?_method=DELETE" method="POST">
-                    <button type="submit">X</button>
-                </form>
-                <% } %> -->
+             
               </td>
             </tr>
             <% }); %>
@@ -63,6 +60,7 @@
     <div class="column" id="right-side">
       <section id="show-listings">
         <h2>Listing</h2>
+        <% if (user) { %>
         <form
           action="/markets/<%= market._id %>/listings"
           method="POST"
@@ -70,8 +68,10 @@
         >
           <label>Item</label>
           <input type="text" name="item" cols="30" rows="5"></input>
+          <br><br>
           <label>Price</label>
           <input type="number" name="price" >
+          <br><br>
           <label>Quantity</label>
           <input type="number" name="quantity">
           <br><br>
@@ -80,6 +80,7 @@
           <br>
           <input type="submit" value="Add Listing" />
         </form>
+        <% } %>
 
         <% if(market.listings.length) { %>
         <table>
@@ -97,11 +98,11 @@
             <tr>
              
               <td><%= l.item %></td>
-              <td><%= l.price %></td>
+              <td>$<%= l.price %></td>
               <td><%= l.quantity %></td>
               <td><%= l.description %></td>
               <td>
-                <% if(user?._id.equals(m.user))  { %>
+                <% if(user?._id.equals(l.user))  { %>
                 <form action="/listings/<%= l._id %>?_method=DELETE" method="POST">
                     <button type="submit">X</button>
                 </form>
