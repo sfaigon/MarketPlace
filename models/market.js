@@ -33,10 +33,19 @@ const listingSchema = new Schema(
     price: { type: Number, min: 1, required: true },
     quantity: { type: Number, min: 1, required: true },
     description: { type: String, required: true },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      //   required: true,
+      // currently working if i dont require it, dont know why
+      },
+      userName: String,
+      userAvatar: String,
   },
   {
     timestamps: true,
   }
+  
 );
 
 const marketSchema = new Schema(
@@ -46,6 +55,14 @@ const marketSchema = new Schema(
     // categories - debating setup
     storeReviews: [storeReviewsSchema],
     listings: [listingSchema],
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      //   required: true,
+      // currently working if i dont require it, dont know why
+      },
+      userName: String,
+      userAvatar: String,
   },
   {
     timestamps: true,

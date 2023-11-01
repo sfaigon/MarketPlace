@@ -6,6 +6,7 @@
         <th>Name</th>
         <th>location</th>
         <th></th>
+        <th></th>
     </thead>
     <tbody>
         <% markets.forEach(function(m) { %>
@@ -13,6 +14,13 @@
                 <td><%= m.name %></td>
                 <td><%= m.location %></td>
                 <td><a href="/markets/<%= m._id %>"> Enter the Store</a></td>
+                <% if(user?._id.equals(m.user))  { %>
+                <td>
+                    <form action="/markets/<%= m._id %>?_method=DELETE" method="POST">                        
+                        <button type="submit">X</button>
+                    </form>
+                </td>
+                <% } %>
             </tr>
        <% }) %>
         <% } else { %>
