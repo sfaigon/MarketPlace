@@ -45,9 +45,11 @@
               <td><%= m.content %></td>
               <td><%= m.rating %></td>
               <td>
+                <% if(user?._id.equals(m.user))  { %>
                 <form action="/storeReviews/<%= m._id %>?_method=DELETE" method="POST">
                     <button type="submit">X</button>
                 </form>
+                <% } %>
               </td>
             </tr>
             <% }); %>
@@ -99,9 +101,11 @@
               <td><%= l.quantity %></td>
               <td><%= l.description %></td>
               <td>
+                <% if(user?._id.equals(m.user))  { %>
                 <form action="/listings/<%= l._id %>?_method=DELETE" method="POST">
                     <button type="submit">X</button>
                 </form>
+                <% } %>
               </td>
               
             </tr>
