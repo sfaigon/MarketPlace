@@ -1,0 +1,13 @@
+<%- include("../../partials/header") %>
+<form action="/listings/<%= listing._id %>?_method=PUT" method="POST">
+    <input type="text" name="item" value="<%= listing.item %>">
+    <input type="Number" name="price" value="<%= listing.price %>">
+    <br><br>
+    <input type="Number" name="quantity" value="<%= listing.quantity %>">
+    <input type="text" name="itemImg" value="<%= listing.itemImg %>">
+    <br><br>
+    <input type="text" name="description" value="<%= listing.description %>">
+    <br>
+    <button type="submit">Submit Changes</button>
+</form>
+<%- include("../../partials/footer") %>

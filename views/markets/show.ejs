@@ -110,9 +110,9 @@
               <td><img class="itemImg" src="<%= l.itemImg %>" /></a></td>
               <% if(user?._id.equals(l.user))  { %>
               <td class="deleteBox">
+                <a href="/listings/<%= l._id %>/edit" class="editBtn"><h3>Edit</h3></a>
                 <form action="/listings/<%= l._id %>?_method=DELETE" method="POST">
-                  
-                  <a href="/listings/<%= l._id %>/edit" class="editBtn"><h3>Edit</h3></a>  <button type="submit">X</button>
+                  <button type="submit">X</button>
                 </form>
             </td>
             <% } %>
