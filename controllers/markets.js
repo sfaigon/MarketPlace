@@ -4,7 +4,7 @@ module.exports = {
   new: newMarket,
   create,
   show,
-  delete: deleteMarket,
+  // delete: deleteMarket,
 };
 async function index(req, res) {
   const markets = await Market.find({});
@@ -33,14 +33,14 @@ async function create(req, res) {
   }
 }
 
-function deleteMarket(req, res, next){
-  Market.findOne({"market._id": req.params.id}).then(function(market){
-    if(!market) return res.redirect("/markets");
-    market.storeReviews.remove(req.params.id);
-    market.save().then(function(){
-      res.redirect(`/markets/${market._id}`);
-    }).catch(function(err){
-      return next(err);
-    })
-  })
-}
+// function deleteMarket(req, res, next){
+//   Market.findById({"market._id": req.params.id}).then(function(market){
+//     if(!market) return res.redirect("/markets");
+//     market.storeReviews.remove(req.params.id);
+//     market.save().then(function(){
+//       res.redirect(`/markets`);
+//     }).catch(function(err){
+//       return next(err);
+//     })
+//   })
+// }
