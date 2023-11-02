@@ -4,50 +4,25 @@ module.exports = {
   create,
   delete: deleteListing,
   edit,
+  update,
 };
-// function show (req, res){
-//   Market.findOne({ "listings._id": req.params.id }).then(function (market) {
-//   const listing = market;
-//   });
-//   res.render("markets/listings/edit",{title: "Edit Listing", listing});
-// }
+
 async function edit(req, res) {
   Market.findOne({ "listings._id": req.params.id }).then(function (market) {
-
     if (!market) return res.redirect("/markets");
-    const listing = market.listings.id(req.params.id);
-  
+    const listing = market.listings.id(req.params.id);  
     market.save().then(function () {
       res.render("markets/listings/edit", {
         title: "Edit Listing",
         market,
-        listing
-     
+        listing     
       });
       })
       .catch(function (err) {
         return next(err);
       });
   });
-
-  // try {
-  //   const market = await Market.findById(req.params.id);
-  //   const listing = market.listings.id(req.params.listing.id);
-
-  //   // Check if the listing exists
-  //   if (!listing) {
-  //     return res.status(404).json({ message: 'Listing not found' });
-  //   }
-
-  //   res.render("markets/listings/edit", {
-  //     title: "Edit Listing",
-  //     market,
-  //     listing
-  //   });
-  // } catch (err) {
-  //   console.log(err);
-  //   res.status(500).json({ message: 'Internal server error' });
-  // }
+ 
 }
 async function create(req, res) {
   const market = await Market.findById(req.params.id);
@@ -74,4 +49,34 @@ function deleteListing(req, res, next) {
         return next(err);
       });
   });
+}
+
+async function update(req, res) {
+  try {
+    const market = await Market.findOne({ "listings._id": req.params.id });
+
+    if (!market) {
+      return res.redirect("/markets");
+    }
+
+    const listing = market.listings.id(req.params.id);
+
+    if (!listing) {
+      return res.status(404).json({ message: 'Listing not found' });
+    }
+
+    listing.item = req.body.item;   
+    listing.price = req.body.price;
+    listing.quantity = req.body.quantity;
+    listing.description = req.body.description;
+    listing.itemImg = req.body.itemImg;
+
+
+    await market.save();
+
+    res.redirect(`/markets/${market._id}`);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
 }

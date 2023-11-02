@@ -31,7 +31,7 @@
         </form>
         <% } %>
         <% if(market.storeReviews.length) { %>
-        <table>
+        <table class="reviewsTable">
           <thead>
             <tr>
               <th>User</th>
@@ -46,11 +46,11 @@
             <tr>
               <td><%= m.userName %></td>
               <td><%= m.createdAt.toLocaleDateString() %></td>
-              <td><%= m.content %></td>
+              <td class="reviewText"><%= m.content %></td>
               <td><%= m.rating %></td>
               <% if(user?._id.equals(m.user))  { %>
                 <td>
-                 
+                  <a href="/storeReviews/<%= m._id %>/edit" class="editBtn"><h5>Edit</h5></a>
                   <form action="/storeReviews/<%= m._id %>?_method=DELETE" method="POST">
                       <button type="submit">X</button>
                   </form>

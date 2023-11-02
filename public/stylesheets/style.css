@@ -67,23 +67,28 @@ nav > a.active {
   color: white;
   cursor: default;
 }
-table {
-  
-  width: 50vw;
-  table-layout: fixed;
+.reviewsTable {
+  display: block;
+  overflow-y: scroll;
+  max-height: 45vh;
+  width: 40vw;
   border-radius: 5%;
- 
+  margin: auto;
 
 }
 
 .listingTable {
   display: block;
   overflow-y: scroll;
-  max-height: 40vh;
+  max-height: 50vh;
+  width: 40vw;
+  table-layout: fixed;
+  border-radius: 5%;
+  margin: auto;
 }
 td {
   background-color: #dbdbdb;
-  border-radius: 10%;
+  border-radius: 10%;  
   padding: 10px 20px 10px 20px;
 }
 .itemImg{
@@ -92,6 +97,9 @@ td {
 .itemAndDescrip {
   height: 13vh;
   max-width: 10vw;
+}
+.reviewText {
+  max-width: 15vw;
 }
 .deleteBox {
   background-color: #B8C0C2;
