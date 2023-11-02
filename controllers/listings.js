@@ -5,6 +5,7 @@ module.exports = {
   delete: deleteListing,
   edit,
   update,
+  buyOne,
 };
 
 async function edit(req, res) {
@@ -54,29 +55,46 @@ function deleteListing(req, res, next) {
 async function update(req, res) {
   try {
     const market = await Market.findOne({ "listings._id": req.params.id });
-
     if (!market) {
       return res.redirect("/markets");
     }
-
     const listing = market.listings.id(req.params.id);
-
     if (!listing) {
       return res.status(404).json({ message: 'Listing not found' });
     }
-
     listing.item = req.body.item;   
     listing.price = req.body.price;
     listing.quantity = req.body.quantity;
     listing.description = req.body.description;
     listing.itemImg = req.body.itemImg;
-
-
     await market.save();
-
     res.redirect(`/markets/${market._id}`);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: 'Internal server error' });
   }
 }
+async function buyOne(req, res) {
+  try {
+    
+    const market = await Market.findOne({ "listings._id": req.params.id });
+    if (!market) {
+      return res.redirect("/markets");
+    }
+    const listing = market.listings.id(req.params.id);
+    if (!listing) {
+      return res.status(404).json({ message: 'Listing not found' });
+    }
+    if (listing.quantity > 1) {
+      listing.quantity -= 1;
+    } else {
+      market.listings.remove(req.params.id);
+    }
+    await market.save();
+    res.redirect(`/markets/${market._id}`);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+}
+

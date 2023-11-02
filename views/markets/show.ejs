@@ -106,7 +106,14 @@
              
               <td class="itemAndDescrip"><%= l.item %> <br> <br> <%= l.description %></td>
               <td>$<%= l.price %></td>
-              <td><%= l.quantity %></td>
+              <td>
+                <%= l.quantity %>
+                <!-- thinking about adding a buy function, if quantity >1 it will subtract one from the quantity
+                if the quantity is 1 then it will delete the listing -->
+                <form action="/listings/<%= l._id %>/buyOne" method="POST">
+                  <button type="submit">buyOne</button>
+                </form>
+              </td>
               <td><img class="itemImg" src="<%= l.itemImg %>" /></a></td>
               <% if(user?._id.equals(l.user))  { %>
               <td class="deleteBox">

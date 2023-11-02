@@ -11,4 +11,6 @@ router.delete("/listings/:id", ensureLoggedIn, listingsCtrl.delete);
 
 router.put("/listings/:id", ensureLoggedIn, listingsCtrl.update);
 
+router.post("/listings/:id/buyOne", ensureLoggedIn, listingsCtrl.buyOne);
+
 module.exports = router;
