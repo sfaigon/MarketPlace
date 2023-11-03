@@ -6,4 +6,5 @@
 <h2>Martketplace Pictures</h2>
 
 ![Pic1](https://github.com/sfaigon/MarketPlace/assets/55246409/f51902d2-fbbc-435c-b8aa-eece383cfb12)
+
 <p>This is the first screen that appears when you open the webpage. Without logging in you are restricted from creating your own marketplace but  you can still see the markets that are available.</p>
