@@ -40,7 +40,6 @@ async function create(req, res) {
 }
 function deleteListing(req, res, next) {
   Market.findOne({ "listings._id": req.params.id }).then(function (market) {
-    //market is the listing object
     if (!market) return res.redirect("/markets");
     market.listings.remove(req.params.id);
     market.save().then(function () {

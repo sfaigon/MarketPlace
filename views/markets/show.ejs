@@ -108,8 +108,7 @@
               <td>$<%= l.price %></td>
               <td>
                 <%= l.quantity %>
-                <!-- thinking about adding a buy function, if quantity >1 it will subtract one from the quantity
-                if the quantity is 1 then it will delete the listing -->
+      
                 <form action="/listings/<%= l._id %>/buyOne" method="POST">
                   <button type="submit">buyOne</button>
                 </form>

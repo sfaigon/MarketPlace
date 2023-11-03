@@ -16,8 +16,6 @@ const storeReviewsSchema = new Schema(
     user: {
       type: Schema.Types.ObjectId,
       ref: "User",
-    //   required: true,
-    // currently working if i dont require it, dont know why
     },
     userName: String,
     userAvatar: String,
@@ -37,8 +35,6 @@ const listingSchema = new Schema(
     user: {
         type: Schema.Types.ObjectId,
         ref: "User",
-      //   required: true,
-      // currently working if i dont require it, dont know why
       },
       userName: String,
       userAvatar: String,
@@ -59,8 +55,6 @@ const marketSchema = new Schema(
     user: {
         type: Schema.Types.ObjectId,
         ref: "User",
-      //   required: true,
-      // currently working if i dont require it, dont know why
       },
       userName: String,
       userAvatar: String,
