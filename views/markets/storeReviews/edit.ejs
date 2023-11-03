@@ -1,6 +1,8 @@
 <%- include("../../partials/header") %>
 <form action="/storeReviews/<%= storeReview._id %>?_method=PUT" method="POST">
+    <label>Your Review</label>
     <input type="text" name="content" value="<%= storeReview.content %>">
+    <label>Your Rating</label>
     <input type="Number" name="rating" value="<%= storeReview.rating %>">
     
     <button type="submit">Submit Changes</button>
