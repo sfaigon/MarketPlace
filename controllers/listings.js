@@ -70,7 +70,6 @@ async function update(req, res) {
     res.redirect(`/markets/${market._id}`);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: 'Internal server error' });
   }
 }
 async function buyOne(req, res) {
@@ -93,7 +92,6 @@ async function buyOne(req, res) {
     res.redirect(`/markets/${market._id}`);
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: 'Internal server error' });
   }
 }
 
