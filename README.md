@@ -25,4 +25,14 @@
 
 <p>Once the user decides to enter a market place. They are not allowed the option to leave reviews on the stores and create their very own listings. If they have any previous listings and reviews, they can update and edit them. Users can now also "purchase" items from the store. Once all itesm are purchased, the listing will be deleted.</p>
 
+<h2>Some Code Snippets</h2>
+
+![pic6](https://github.com/sfaigon/MarketPlace/assets/55246409/a2ee3816-a0f3-4786-a9b5-0f18dcdf6edf)
+
+<p>This is the logic behind the buy one method, simply reduce quantity by one and delete the listing itself once it runs out</p>
+
+<h2>Next Steps</h2>
+<p>Something that this project could use would be more css and styling and possibly a way to keep tract of what items users have bought in manner that the listings users could see who owns them how much money.</p>
+
+
 
